@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ProdutoController {
 
     @GetMapping("cadastrar")
-    public String abrirFormulario(){
+    public String abrirFormulario() {
         return "/produto/form";
     }
 

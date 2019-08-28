@@ -15,19 +15,23 @@ public class ProdutoController {
     private ProdutoRepository repository;
 
     @GetMapping("/cadastrar")
-    public String cadastrar(){ return "form"; }
+    public String cadastrar() {
+        return "form";
+    }
 
     @GetMapping("/buscar")
-    public String buscar(){ return "busca"; }
+    public String buscar() {
+        return "busca";
+    }
 
     @PostMapping("/cadastrar")
-    public String processarForm(Produto produto){
+    public String processarForm(Produto produto) {
         repository.save(produto);
         return "sucesso";
     }
 
     @PostMapping("/buscar")
-    public String processarBusca(int codigo, Model model){
+    public String processarBusca(int codigo, Model model) {
         Optional<Produto> produto = repository.findById(codigo);
         model.addAttribute("prod", produto);
         return "resultadoBusca";
